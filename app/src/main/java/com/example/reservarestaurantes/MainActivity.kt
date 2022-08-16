@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 update(user)
             } else {
                 Log.d("Login user", "Failed")
-                Toast.makeText(baseContext, "Fallido!", Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext, "Failded!", Toast.LENGTH_LONG).show()
                 update(null)
             }
         }
