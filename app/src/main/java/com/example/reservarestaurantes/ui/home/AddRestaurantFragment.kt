@@ -49,16 +49,20 @@ class AddRestaurantFragment : Fragment() {
         val phone1=parseInt(binding.iptTel1.text.toString())
         val phone2=parseInt(binding.iptTel2.text.toString())
         val prices = binding.iptPriceRange.text.toString()
-        val scheduleInit = binding.iptSchedule1.text.toString()
-        val scheduleInit = binding.iptSchedule1.text.toString()
+        val scheduleInit = parseInt(binding.iptSchedule1.text.toString())
+        val scheduleEnd =  parseInt(binding.iptSchedule1.text.toString())
+        val reservationTime = parseInt(binding.iptNumberReservations.text.toString())
+        val address = binding.iptAddress.text.toString()
+        val googleAddress = binding.iptMapsData.text.toString()
 
-        if (nombre.isNotEmpty()) { //Si puedo crear un lugar
-            val restaurant= Restaurant("", name, phone1, phone2, prices)
+        if (name.isNotEmpty()) {
+            val restaurant= Restaurant("", name, phone1, phone2, prices, scheduleInit,
+                scheduleEnd, reservationTime, address, googleAddress)
             restaurantViewModel.saveRestaurant(restaurant)
-            Toast.makeText(requireContext(),getString(R.string.msg_lugar_added), Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),getString(R.string.msg_restaurant_added), Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.homeFragment)
         } else {  //Mensaje de error...
-            Toast.makeText(requireContext(),getString(R.string.msg_data), Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),getString(R.string.msg_restaurant_error), Toast.LENGTH_SHORT).show()
         }
     }
 

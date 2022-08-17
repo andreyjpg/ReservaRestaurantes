@@ -145,7 +145,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/ipt_numberReservations"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
