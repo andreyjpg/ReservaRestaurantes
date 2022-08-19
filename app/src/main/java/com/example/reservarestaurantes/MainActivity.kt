@@ -15,7 +15,6 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun update(user: FirebaseUser?) {
         if (user != null) {
-            val intent = Intent(this, CentralActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
@@ -59,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 update(user)
             } else {
                 Log.d("Login user", "Failed")
-                Toast.makeText(baseContext, "Fallido!", Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext, "Failded!", Toast.LENGTH_LONG).show()
                 update(null)
             }
         }

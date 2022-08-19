@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.AddRestaurantFragment"
+    tools:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="80dp">
+
+        <TextView
+            android:id="@+id/txt_titleScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:text="Registro de restaurante"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipt_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp"
+            android:text="Nombre"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teléfono 1"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipt_tel1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:inputType="phone"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Teléfono 2 (opcional)"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipt_tel2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:inputType="phone"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rangos de precios"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipt_priceRange"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Horarios"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ipt_schedule1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
+                android:ems="5"
+                android:inputType="time"
+                android:maxWidth="10dp"
+                android:paddingStart="15dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="a" />
+
+            <EditText
+                android:id="@+id/ipt_schedule2"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_text_bg"
+                android:ems="5"
+                android:inputType="time"
+                android:paddingStart="15dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cantidad de reservas por horario"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipt_numberReservations"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dirección"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipt_address"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cordenadas Google maps"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ipt_mapsData"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edit_text_bg"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="15dp" />
+
+        <Button
+            android:id="@+id/btn_saveRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_bg"
+            android:text="Guardar" />
+    </LinearLayout>
+
+</ScrollView>
