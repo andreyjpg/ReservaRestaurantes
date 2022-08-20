@@ -15,8 +15,10 @@
     <string name="action_addRestaurant">Agregar Restarante</string>
     <string name="action_profile">Mi Perfil</string>
     <string name="title_activity_central">CentralActivity</string>
-    <string name="msg_restaurant_added">Restaurante Agregado</string>
+    <string name="msg_restaurant_added">Reserva Agregada</string>
+    <string name="msg_reserva_added">Restaurante Agregado</string>
     <string name="msg_restaurant_error">Error al intentar agregar un restaurante</string>
+    <string name="msg_reserva_error">Error al intentar agregar una reserva</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_home">HomeActivity</string>
