@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
-
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.reservarestaurantes.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+    app:startDestination="@id/nav_restaurant">
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -20,10 +14,34 @@
         android:id="@+id/addRestaurantFragment"
         android:name="com.example.reservarestaurantes.ui.home.AddRestaurantFragment"
         android:label="fragment_add_restaurant"
-        tools:layout="@layout/fragment_add_restaurant"/>
+        tools:layout="@layout/fragment_add_restaurant">
+    <action
+        android:id="@+id/action_addRestaurantFragment_to_nav_restaurant"
+        app:destination="@id/nav_restaurant" />
+        </fragment>
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.reservarestaurantes.ui.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home"/>
+        android:id="@+id/nav_restaurant"
+        android:name="com.example.reservarestaurantes.ui.home.RestaurantFragment"
+        android:label="@string/menu_reservas"
+        tools:layout="@layout/fragment_restaurant" >
+        <action
+            android:id="@+id/action_nav_restaurant_to_addRestaurantFragment"
+            app:destination="@id/addRestaurantFragment" />
+        <action
+            android:id="@+id/action_nav_restaurant_to_updateRestaurantFragment"
+            app:destination="@id/updateRestaurantFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/updateRestaurantFragment"
+        android:name="com.example.reservarestaurantes.ui.home.UpdateRestaurantFragment"
+        android:label="Actualizar Restaurante"
+        tools:layout="@layout/fragment_update_restaurant" >
+        <action
+            android:id="@+id/action_updateRestaurantFragment_to_nav_restaurant"
+            app:destination="@id/nav_restaurant" />
+        <argument
+            android:name="restaurant"
+            app:argType="com.example.reservarestaurantes.model.Restaurant" />
+    </fragment>
 </navigation>

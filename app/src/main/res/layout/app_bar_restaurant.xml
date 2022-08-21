@@ -5,13 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CentralActivity">
+    tools:context=".HomeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:theme="@style/Theme.ReservaRestaurantes.AppBarOverlay">
-        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -22,6 +21,6 @@
 
   </com.google.android.material.appbar.AppBarLayout>
 
-  <include layout="@layout/content_central"/>
+  <include layout="@layout/content_restaurant"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

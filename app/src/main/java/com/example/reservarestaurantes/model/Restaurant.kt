@@ -15,8 +15,9 @@ data class Restaurant (
     var scheduleEnd: Int,
     var reservationNumber: Int,
     var Address: String,
+    var userCreate: String,
     var googleAddress: String,
 ) : Parcelable {
     constructor() :
-            this("", "", 0, null, "", 0, 0, 0, "", "")
+            this("", "", 0, null, "", 0, 0, 0, "", "","")
 }
