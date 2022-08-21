@@ -2,6 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.reservarestaurantes">
+    <!-- Este es para decirle al android que esta app requiere acceso a hacer llamadas-->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <!-- Estos permisos se requieren para la geolocalzación -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!-- Microfono y Camara -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" xmlns:tools="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!-- Internet Permission -->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -15,8 +29,9 @@
         tools:targetApi="31">
         <activity
             android:name=".HomeActivity"
-            android:exported="false"
-            android:label="@string/title_activity_home" />
+            android:exported="true"
+            android:label="@string/title_activity_home"
+            android:theme="@style/Theme.ReservaRestaurantes.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

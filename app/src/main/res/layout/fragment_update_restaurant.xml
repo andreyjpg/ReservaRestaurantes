@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.home.AddRestaurantFragment"
+    tools:context=".ui.home.UpdateRestaurantFragment"
     tools:visibility="visible">
 
     <LinearLayout
@@ -171,6 +171,14 @@
             android:inputType="textPersonName"
             android:paddingStart="15dp" />
         <Button
+            android:id="@+id/btn_deleteRestaurant"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_bg"
+            android:text="Eliminar" />
+
+        <Button
             android:id="@+id/btn_choose_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -189,13 +197,13 @@
             android:text="Cargar Imagen" />
 
         <Button
-            android:id="@+id/btn_saveRestaurant"
+            android:id="@+id/btn_updateRestaurant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_bg"
-            android:text="Guardar" />
+            android:text="Actualizar" />
     </LinearLayout>
 
 </ScrollView>

@@ -10,8 +10,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 class RestaurantDao {
-    private val collection1 = "restaurantReservationApp"
-    private val collection2 = "restaurants"
+    private val collection = "restaurants"
     private val usuario = Firebase.auth.currentUser?.email.toString()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
@@ -19,9 +18,21 @@ class RestaurantDao {
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
+    /* fun getAllData() : MutableLiveData<List<Restaurant>> {
+        val restaurantsList = MutableLiveData<List<Restaurant>>()
+        firestore.collection(collection1).get().addOnSuccessListener { documents ->
+            val lista = ArrayList<Restaurant>()
+            for (document in documents) {
+                lista.add(document.toObject(Restaurant::class.java));
+            }
+            restaurantsList.value=lista
+        }
+        return restaurantsList
+    } */
+
     fun getAllData() : MutableLiveData<List<Restaurant>> {
         val restaurantsList = MutableLiveData<List<Restaurant>>()
-        firestore.collection(collection1).document().collection(collection2)
+        firestore.collection(collection)
             .addSnapshotListener{ instantanea, e ->
                 if (e != null) {  //Se valida si se generó algún error en la captura de los documentos
                     return@addSnapshotListener
@@ -42,11 +53,10 @@ class RestaurantDao {
     fun saveRestaurant(restaurant: Restaurant) {
         val document: DocumentReference
         if (restaurant.id.isEmpty()){
-            document = firestore.collection(collection1).document().collection(collection2).document()
+            document = firestore.collection(collection).document()
             restaurant.id = document.id
         } else {
-            document = firestore.collection(collection1).document()
-                .collection(collection2).document(restaurant.id)
+            document = firestore.collection(collection).document(restaurant.id)
         }
         document.set(restaurant)
             .addOnSuccessListener { Log.d("saveRestaurant","Se creó o modificó un restaurante") }
@@ -55,8 +65,7 @@ class RestaurantDao {
 
     fun deleteRestaurant(restaurant: Restaurant) {
         if (restaurant.id.isNotEmpty()) {  //Si el id tiene valor... entonces podemos eliminar el restaurant... porque existe...
-            firestore.collection(collection1).document()
-                .collection(collection2).document(restaurant.id).delete()
+            firestore.collection(collection).document(restaurant.id).delete()
                 .addOnSuccessListener { Log.d("deleteRestaurant","Se eliminó un restaurante") }
                 .addOnCanceledListener { Log.e("deleteRestaurant","NO se eliminó un restaurante") }
         }
