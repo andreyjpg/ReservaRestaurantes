@@ -14,6 +14,16 @@ class RestaurantViewModal(application: Application): AndroidViewModel(applicatio
     //Atributo para acceder al repositorio de Lugar
     private val repository: RestaurantRepository = RestaurantRepository(RestaurantDao())
 
+    val getAllData: MutableLiveData<List<Restaurant>>
+
+    init {  getAllData = repository.getAllData  }
+
+    fun deleteRestaurant(restaurant: Restaurant) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteRestaurant(restaurant)
+        }
+    }
+
     fun saveRestaurant(restaurant: Restaurant) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.saveRestaurant(restaurant)
