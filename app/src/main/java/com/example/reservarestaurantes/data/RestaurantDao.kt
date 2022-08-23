@@ -18,18 +18,6 @@ class RestaurantDao {
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
-    /* fun getAllData() : MutableLiveData<List<Restaurant>> {
-        val restaurantsList = MutableLiveData<List<Restaurant>>()
-        firestore.collection(collection1).get().addOnSuccessListener { documents ->
-            val lista = ArrayList<Restaurant>()
-            for (document in documents) {
-                lista.add(document.toObject(Restaurant::class.java));
-            }
-            restaurantsList.value=lista
-        }
-        return restaurantsList
-    } */
-
     fun getAllData() : MutableLiveData<List<Restaurant>> {
         val restaurantsList = MutableLiveData<List<Restaurant>>()
         firestore.collection(collection)

@@ -10,8 +10,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 class ReservasDao {
-    private val collection1 = "restaurantReservationApp"
-    private val collection2 = "bookings"
+    private val collection1 = "reservations"
+    private val collection2 = "userBookings"
     private val usuario = Firebase.auth.currentUser?.email.toString()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
@@ -21,7 +21,7 @@ class ReservasDao {
 
     fun getAllData() : MutableLiveData<List<Reservas>> {
         val reservasList = MutableLiveData<List<Reservas>>()
-        firestore.collection(collection1).document().collection(collection2)
+        firestore.collection(collection1).document(usuario).collection(collection2)
             .addSnapshotListener{ instantanea, e ->
                 if (e != null) {  //Se valida si se generó algún error en la captura de los documentos
                     return@addSnapshotListener
@@ -42,10 +42,10 @@ class ReservasDao {
     fun saveReserva(reserva: Reservas) {
         val document: DocumentReference
         if (reserva.id.isEmpty()){
-            document = firestore.collection(collection1).document().collection(collection2).document()
+            document = firestore.collection(collection1).document(usuario).collection(collection2).document()
             reserva.id = document.id
         } else {
-            document = firestore.collection(collection1).document()
+            document = firestore.collection(collection1).document(usuario)
                 .collection(collection2).document(reserva.id)
         }
         document.set(reserva)
@@ -55,7 +55,7 @@ class ReservasDao {
 
     fun deleteReserva(reserva: Reservas) {
         if (reserva.id.isNotEmpty()) {  //Si el id tiene valor... entonces podemos eliminar la reserva... porque existe...
-            firestore.collection(collection1).document()
+            firestore.collection(collection1).document(usuario)
                 .collection(collection2).document(reserva.id).delete()
                 .addOnSuccessListener { Log.d("deleteReserva","Se eliminó una reserva") }
                 .addOnCanceledListener { Log.e("deleteReserva","NO se eliminó una reserva") }

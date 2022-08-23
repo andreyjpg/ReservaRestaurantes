@@ -80,7 +80,7 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hora de reserva"
+            android:text="Tiempo de reserva"
             android:textSize="24sp" />
 
         <EditText
@@ -97,7 +97,7 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Horarios"
+            android:text="Hora de reserva"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -117,46 +117,11 @@
                 android:maxWidth="10dp"
                 android:paddingStart="15dp" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="a" />
-
-            <EditText
-                android:id="@+id/ipt_schedule2"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@drawable/edit_text_bg"
-                android:ems="5"
-                android:inputType="time"
-                android:paddingStart="15dp" />
-
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Numero de reservacion"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/ipt_reservationNumber"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/edit_text_bg"
-            android:ems="10"
-            android:inputType="number"
-            android:paddingStart="15dp" />
 
 
         <Button
-            android:id="@+id/btn_saveReserva"
+            android:id="@+id/btn_updateReserva"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

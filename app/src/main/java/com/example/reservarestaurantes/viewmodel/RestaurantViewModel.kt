@@ -10,8 +10,8 @@ import com.example.reservarestaurantes.repository.RestaurantRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class RestaurantViewModal(application: Application): AndroidViewModel(application) {
-    //Atributo para acceder al repositorio de Lugar
+class RestaurantViewModel(application: Application): AndroidViewModel(application) {
+    //Atributo para acceder al repositorio de restaurantes
     private val repository: RestaurantRepository = RestaurantRepository(RestaurantDao())
 
     val getAllData: MutableLiveData<List<Restaurant>>

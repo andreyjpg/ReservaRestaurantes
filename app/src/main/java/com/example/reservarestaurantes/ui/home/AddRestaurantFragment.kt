@@ -1,6 +1,5 @@
 package com.example.reservarestaurantes.ui.home
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,22 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.reservarestaurantes.R
 import com.example.reservarestaurantes.databinding.FragmentAddRestaurantBinding
 import com.example.reservarestaurantes.model.Restaurant
-import com.example.reservarestaurantes.viewmodel.RestaurantViewModal
+import com.example.reservarestaurantes.viewmodel.RestaurantViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.lang.Integer.parseInt
-import java.text.SimpleDateFormat
-import java.util.*
 
 class AddRestaurantFragment : Fragment() {
     private var _binding: FragmentAddRestaurantBinding? = null
@@ -34,14 +29,14 @@ class AddRestaurantFragment : Fragment() {
     private var storageReference: StorageReference? = null
     private var imageUri: Uri? = null
 
-    private lateinit var restaurantViewModel: RestaurantViewModal
+    private lateinit var restaurantViewModel: RestaurantViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         restaurantViewModel =
-            ViewModelProvider(this)[RestaurantViewModal::class.java]
+            ViewModelProvider(this)[RestaurantViewModel::class.java]
         _binding = FragmentAddRestaurantBinding.inflate(inflater, container, false)
 
         firebaseStore = FirebaseStorage.getInstance()

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.reservarestaurantes.R
 import com.example.reservarestaurantes.databinding.FragmentAddReservasBinding
 import com.example.reservarestaurantes.model.Reservas
@@ -17,6 +18,8 @@ import com.google.firebase.storage.StorageReference
 import java.lang.Integer.parseInt
 
 class AddReservasFragment : Fragment() {
+    private val args by navArgs<AddReservasFragmentArgs>()
+
     private var _binding: FragmentAddReservasBinding? = null
     private val binding get() = _binding!!
     private var firebaseStore: FirebaseStorage? = null
@@ -48,13 +51,10 @@ class AddReservasFragment : Fragment() {
         val phone2=parseInt(binding.iptTel2.text.toString())
         val reservationTime = binding.iptReservationTime.text.toString()
         val scheduleInit = parseInt(binding.iptSchedule1.text.toString())
-        val scheduleEnd =  parseInt(binding.iptSchedule1.text.toString())
-        val reservationNumber = parseInt(binding.iptReservationNumber.text.toString())
-
 
         if (name.isNotEmpty()) {
             val reserva= Reservas("", name, phone1, phone2, reservationTime, scheduleInit,
-                scheduleEnd, reservationNumber)
+                args.restaurant)
             reservasViewModel.saveReserva(reserva)
             Toast.makeText(requireContext(),getString(R.string.msg_reserva_added), Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.homeFragment)

@@ -11,15 +11,10 @@ data class Reservas (
     var phone1: Int,
     var phone2: Int?,
     var reservationTime: String,
-    var scheduleInit: Int,
-    var scheduleEnd: Int,
-    var reservationNumber: Int,
+    var bookingTime: Int,
+    var restaurant: Restaurant
 
 ) : Parcelable {
     constructor() :
-            this("", "", 0, null, "", 0, 0, 0)
+            this("", "", 0, null, "", 0, Restaurant())
 }
-
-
-
-//8

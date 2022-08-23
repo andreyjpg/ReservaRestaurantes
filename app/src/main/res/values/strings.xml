@@ -11,6 +11,8 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_delete">Borrar Reserva</string>
     <string name="action_signout">Cerrar Sesión</string>
+    <string name="action_myProfile">Mi Perfil</string>
+    <string name="action_myBooking">Mis Reservas</string>
     <string name="action_reservations">Reservas</string>
     <string name="action_addRestaurant">Restaurantes</string>
     <string name="action_profile">Mi Perfil</string>
@@ -27,9 +29,15 @@
     <string name="title_notifications">Notifications</string>
     <string name="delete">Eliminar Restaurante</string>
     <string name="seguroBorrar">¿Estás seguro que desea eliminar el restaurante?</string>
+    <string name="delete_booking">Eliminar reserva</string>
+    <string name="seguroBorrar_booking">¿Estás seguro que desea eliminar el reservas?</string>
     <string name="si">Si</string>
     <string name="no">No</string>
     <string name="msg_nft_update">Restaurante Actualizado</string>
     <string name="fail_save">No se ha podido subir la imagen</string>
     <string name="success_save">No se ha podido subir la imagen</string>
+    <string name="lab_Reservation"> Realizar reserva </string>
+
+    <string name="msg_reserva_update">Reserva Actualizada</string>
+    <string name="msg_err">Error al actualizar reserva</string>
 </resources>
