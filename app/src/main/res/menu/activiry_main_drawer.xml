@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/homeFragment"
+            android:id="@+id/bookingFrament"
             android:icon="@drawable/ic_baseline_restaurant_24"
             android:title="@string/action_reservations" />
         <item

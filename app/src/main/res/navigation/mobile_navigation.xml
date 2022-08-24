@@ -53,6 +53,9 @@
         <action
             android:id="@+id/action_addReservasFragment_to_updateRestaurantFragment"
             app:destination="@id/updateRestaurantFragment" />
+        <action
+            android:id="@+id/action_addReservasFragment_to_nav_restaurant"
+            app:destination="@id/nav_restaurant" />
     </fragment>
     <fragment
         android:id="@+id/updateBookingFragment"

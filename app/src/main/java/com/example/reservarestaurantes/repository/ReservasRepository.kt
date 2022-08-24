@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.reservarestaurantes.data.ReservasDao
 import com.example.reservarestaurantes.model.Reservas
 
+// Repositorio para acceder al Dao
 class ReservasRepository(private val reservasDao: ReservasDao) {
     fun saveReserva(reserva: Reservas) {
         reservasDao.saveReserva(reserva)

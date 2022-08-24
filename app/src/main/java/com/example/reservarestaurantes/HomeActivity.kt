@@ -33,6 +33,7 @@ class HomeActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
+                R.id.bookingFragment,
                 R.id.nav_restaurant
             ),drawerLayout
         )

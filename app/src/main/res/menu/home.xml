@@ -6,14 +6,4 @@
         android:orderInCategory="100"
         android:title="@string/action_signout"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_myProfile"
-        android:orderInCategory="100"
-        android:title="@string/action_myProfile"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_myBooking"
-        android:orderInCategory="100"
-        android:title="@string/action_myBooking"
-        app:showAsAction="never" />
 </menu>

@@ -10,8 +10,13 @@ import com.example.reservarestaurantes.model.Reservas
 import com.example.reservarestaurantes.ui.home.BookingFragmentDirections
 
 class ReservasAdapter: RecyclerView.Adapter<ReservasAdapter.ReservasViewHolder>() {
+    // lista de reservas almacenadas
     private var list = emptyList<Reservas>()
 
+    /*View Holder de la lista de reservas
+    * Aqui se esta llenando los campos en la estructura de fila,
+    *  con los datos de las reservas que se traen
+    */
     inner class ReservasViewHolder(private val itemBinding: BookingFilaBinding)
         : RecyclerView.ViewHolder (itemBinding.root){
         fun draw(reserva: Reservas) {
@@ -45,10 +50,12 @@ class ReservasAdapter: RecyclerView.Adapter<ReservasAdapter.ReservasViewHolder>(
         holder.draw(reservas)
     }
 
+    // Cantidad de items en la lista
     override fun getItemCount(): Int {
         return list.size
     }
 
+    // asignacion de datos
     fun setData(reservas: List<Reservas>) {
         list = reservas
         notifyDataSetChanged()

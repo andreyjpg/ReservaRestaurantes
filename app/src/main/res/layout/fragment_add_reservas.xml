@@ -90,7 +90,7 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/edit_text_bg"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="time"
             android:paddingStart="15dp" />
 
         <TextView
@@ -121,7 +121,7 @@
 
 
         <Button
-            android:id="@+id/btn_saveReserva"
+            android:id="@+id/btn_mainAction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
