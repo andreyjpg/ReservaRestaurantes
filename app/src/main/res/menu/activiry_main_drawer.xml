@@ -13,7 +13,7 @@
             android:icon="@android:drawable/ic_input_add"
             android:title="@string/action_addRestaurant" />
         <item
-            android:id="@+id/navigation_notifications"
+            android:id="@+id/userFragment"
             android:icon="@drawable/ic_baseline_account_circle_24"
             android:title="@string/action_profile" />
 

@@ -44,4 +44,9 @@
             android:name="restaurant"
             app:argType="com.example.reservarestaurantes.model.Restaurant" />
     </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.reservarestaurantes.ui.home.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
 </navigation>
