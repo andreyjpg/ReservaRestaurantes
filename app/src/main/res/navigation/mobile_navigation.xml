@@ -78,4 +78,9 @@
             android:id="@+id/action_bookingFragment_to_updateBookingFragment"
             app:destination="@id/updateBookingFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.reservarestaurantes.ui.home.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
 </navigation>
