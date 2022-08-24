@@ -6,7 +6,7 @@
     <string name="nav_header_desc"></string>
     <string name="nav_header_title">Reserva Restaurantes</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="menu_reservas">Reservas</string>
+    <string name="menu_reservas">Restaurantes</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_delete">Borrar Reserva</string>

@@ -40,15 +40,15 @@ class UpdateBookingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         reservasViewModel =
-            ViewModelProvider(this)[reservasViewModel::class.java]
+            ViewModelProvider(this)[ReservasViewModel::class.java]
         _binding = FragmentUpdateReservasBinding.inflate(inflater, container, false)
 
         //asignacion de los valores del args a los campos de texto
         binding.iptName.setText(args.booking.name)
-        binding.iptTel1.setText(args.booking.phone1)
+        binding.iptTel1.setText(args.booking.phone1.toString())
         binding.iptTel2.setText(args.booking.phone2.toString())
-        binding.iptReservationTime.setText(args.booking.reservationTime)
-        binding.iptSchedule1.setText(args.booking.bookingTime)
+        binding.iptReservationTime.setText(args.booking.reservationTime.toString())
+        binding.iptSchedule1.setText(args.booking.bookingTime.toString())
 
         //click listener con las acciones de eliminar, editar, seleccion de imagenes y carga
         binding.btnMainAction.setOnClickListener { updateBooking() }
