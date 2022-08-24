@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.reservarestaurantes.R
 import com.example.reservarestaurantes.adapter.RestaurantAdapter
 import com.example.reservarestaurantes.databinding.FragmentRestaurantBinding
-import com.example.reservarestaurantes.viewmodel.RestaurantViewModal
+import com.example.reservarestaurantes.viewmodel.RestaurantViewModel
 
 class RestaurantFragment : Fragment() {
     private var _binding: FragmentRestaurantBinding? = null
     private val binding get() = _binding!!
-    private lateinit var restaurantViewModel: RestaurantViewModal
+    private lateinit var restaurantViewModel: RestaurantViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,7 @@ class RestaurantFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         restaurantViewModel =
-            ViewModelProvider(this).get(RestaurantViewModal::class.java)
+            ViewModelProvider(this).get(RestaurantViewModel::class.java)
         _binding = FragmentRestaurantBinding.inflate(inflater, container, false)
         binding.addRestaurant.setOnClickListener {
             findNavController().navigate(R.id.action_nav_restaurant_to_addRestaurantFragment)

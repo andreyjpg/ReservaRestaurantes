@@ -15,8 +15,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.reservarestaurantes.R
 import com.example.reservarestaurantes.databinding.FragmentUpdateRestaurantBinding
 import com.example.reservarestaurantes.model.Restaurant
-import com.example.reservarestaurantes.viewmodel.RestaurantViewModal
-import com.google.firebase.auth.FirebaseAuth
+import com.example.reservarestaurantes.viewmodel.RestaurantViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -43,7 +42,7 @@ class UpdateRestaurantFragment : Fragment() {
     private var storageReference: StorageReference? = null
     private var _binding: FragmentUpdateRestaurantBinding? = null
     private val binding get() = _binding!!
-    private lateinit var restaurantViewModel: RestaurantViewModal
+    private lateinit var restaurantViewModel: RestaurantViewModel
     private val usuario = Firebase.auth.currentUser?.email.toString()
 
     private var imageUri: Uri? = null
@@ -54,7 +53,7 @@ class UpdateRestaurantFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         restaurantViewModel =
-            ViewModelProvider(this)[RestaurantViewModal::class.java]
+            ViewModelProvider(this)[RestaurantViewModel::class.java]
         _binding = FragmentUpdateRestaurantBinding.inflate(inflater, container, false)
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
@@ -73,6 +72,7 @@ class UpdateRestaurantFragment : Fragment() {
         binding.btnUpdateRestaurant.setOnClickListener { updateRestaurant() }
         binding.btnChooseImage.setOnClickListener { launchGallery() }
         binding.btnUploadImage.setOnClickListener { uploadImage() }
+        binding.btnBooking.setOnClickListener { goToBooking() }
 
         if(args.restaurant.userCreate != usuario){
 
@@ -93,6 +93,11 @@ class UpdateRestaurantFragment : Fragment() {
         setHasOptionsMenu(true)
 
         return binding.root
+    }
+
+    private fun goToBooking() {
+        val action = UpdateRestaurantFragmentDirections.actionUpdateRestaurantFragmentToAddReservasFragment(args.restaurant)
+        findNavController().navigate(action)
     }
 
     private fun launchGallery() {

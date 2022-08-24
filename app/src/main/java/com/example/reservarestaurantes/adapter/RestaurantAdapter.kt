@@ -10,8 +10,6 @@ import com.example.reservarestaurantes.model.Restaurant
 import com.example.reservarestaurantes.ui.home.RestaurantFragmentDirections
 
 class RestaurantAdapter : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
-
-
     private var lista = emptyList<Restaurant>()
 
     inner class RestaurantViewHolder(private val itemBinding: RestaurantFilaBinding)

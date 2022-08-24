@@ -6,11 +6,6 @@
     app:startDestination="@id/nav_restaurant">
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.reservarestaurantes.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
-    <fragment
         android:id="@+id/addRestaurantFragment"
         android:name="com.example.reservarestaurantes.ui.home.AddRestaurantFragment"
         android:label="fragment_add_restaurant"
@@ -43,5 +38,44 @@
         <argument
             android:name="restaurant"
             app:argType="com.example.reservarestaurantes.model.Restaurant" />
+        <action
+            android:id="@+id/action_updateRestaurantFragment_to_addReservasFragment"
+            app:destination="@id/addReservasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addReservasFragment"
+        android:name="com.example.reservarestaurantes.ui.home.AddReservasFragment"
+        android:label="fragment_add_reservas"
+        tools:layout="@layout/fragment_add_reservas" >
+        <argument
+            android:name="restaurant"
+            app:argType="com.example.reservarestaurantes.model.Restaurant" />
+        <action
+            android:id="@+id/action_addReservasFragment_to_updateRestaurantFragment"
+            app:destination="@id/updateRestaurantFragment" />
+        <action
+            android:id="@+id/action_addReservasFragment_to_nav_restaurant"
+            app:destination="@id/nav_restaurant" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateBookingFragment"
+        android:name="com.example.reservarestaurantes.ui.home.UpdateBookingFragment"
+        android:label="fragment_update_reservas"
+        tools:layout="@layout/fragment_update_reservas" >
+        <action
+            android:id="@+id/action_updateBookingFragment_to_bookingFragment"
+            app:destination="@id/bookingFragment" />
+        <argument
+            android:name="booking"
+            app:argType="com.example.reservarestaurantes.model.Reservas" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.reservarestaurantes.ui.home.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" >
+        <action
+            android:id="@+id/action_bookingFragment_to_updateBookingFragment"
+            app:destination="@id/updateBookingFragment" />
     </fragment>
 </navigation>

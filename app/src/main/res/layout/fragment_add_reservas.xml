@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.home.UpdateRestaurantFragment"
+    tools:context=".ui.home.AddReservasFragment"
     tools:visibility="visible">
 
     <LinearLayout
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
-            android:text="Registro de restaurante"
+            android:text="Registro de reserva"
             android:textSize="40sp" />
 
         <TextView
@@ -80,24 +80,24 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rangos de precios"
+            android:text="Tiempo de reserva"
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/ipt_priceRange"
+            android:id="@+id/ipt_reservationTime"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/edit_text_bg"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="time"
             android:paddingStart="15dp" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Horarios"
+            android:text="Hora de reserva"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -117,103 +117,16 @@
                 android:maxWidth="10dp"
                 android:paddingStart="15dp" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="a" />
-
-            <EditText
-                android:id="@+id/ipt_schedule2"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@drawable/edit_text_bg"
-                android:ems="5"
-                android:inputType="time"
-                android:paddingStart="15dp" />
-
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cantidad de reservas por horario"
-            android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/ipt_numberReservations"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/edit_text_bg"
-            android:ems="10"
-            android:inputType="number"
-            android:paddingStart="15dp" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dirección"
-            android:textSize="24sp" />
-
-        <EditText
-            android:id="@+id/ipt_address"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/edit_text_bg"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingStart="15dp" />
         <Button
-            android:id="@+id/btn_deleteRestaurant"
-            android:layout_width="match_parent"
+            android:id="@+id/btn_mainAction"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/button_bg"
-            android:text="Eliminar" />
-
-        <Button
-            android:id="@+id/btn_choose_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_bg"
-            android:text="Seleccionar Imagen" />
-
-        <Button
-            android:id="@+id/btn_upload_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_bg"
-            android:text="Cargar Imagen" />
-
-        <Button
-            android:id="@+id/btn_updateRestaurant"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_bg"
-            android:text="Actualizar" />
-
-        <Button
-            android:id="@+id/btn_booking"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_bg"
-            android:text="Realizar reserva" />
-
+            android:text="Guardar" />
     </LinearLayout>
 
 </ScrollView>
