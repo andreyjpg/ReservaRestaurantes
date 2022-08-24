@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.reservarestaurantes.R
 import com.example.reservarestaurantes.databinding.FragmentRestaurantBinding
 import com.example.reservarestaurantes.databinding.FragmentUserBinding
-import com.example.reservarestaurantes.viewmodel.RestaurantViewModal
 import com.example.reservarestaurantes.viewmodel.UserViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
