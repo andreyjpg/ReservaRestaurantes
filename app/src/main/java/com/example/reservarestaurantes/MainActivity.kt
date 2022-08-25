@@ -18,15 +18,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initializing firebase
+        // inicialización a Firebase
         FirebaseApp.initializeApp(this)
         auth = Firebase.auth
 
-        // Assigning the methods to the buttons
+        // Asignación de los metodos de click listener
         binding.loginBtn.setOnClickListener{
             login()
         }
@@ -35,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*
+        metodo que verifica si el usuario esta logueado para pasar a la siguiente pantalla,
+        la pantalla del Home
+     */
     private fun update(user: FirebaseUser?) {
         if (user != null) {
             val intent = Intent(this, HomeActivity::class.java)
@@ -42,22 +45,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Método cuando se inicia la app, asigna el usuario logueado en caso que haya uno
     public override fun onStart() {
         super.onStart()
         val user = auth.currentUser
         update(user)
     }
+    /*
+        metodo de ingreso de usuario utilizando correo y contraseña
+     */
     private fun login() {
         val email = binding.editTextEmail.text.toString()
         val password = binding.editTextPassword.text.toString()
 
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this){
                 task ->
-            if (task.isSuccessful) {
+            if (task.isSuccessful) { // si usuario es ingresado correctamente se hace la actualizacion de la pantalla
                 Log.d("Login user", "Success")
                 val user = auth.currentUser
                 update(user)
-            } else {
+            } else { // en caso de datos incorrectos no se muestra la siguiente pantalla y solo se muestra un error
                 Log.d("Login user", "Failed")
                 Toast.makeText(baseContext, "Failded!", Toast.LENGTH_LONG).show()
                 update(null)
@@ -65,6 +72,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*
+        Registro de usuario utilizando correo y contraseña
+     */
     private fun register() {
         val email = binding.editTextEmail.text.toString()
         val password = binding.editTextPassword.text.toString()

@@ -21,6 +21,7 @@ import com.google.firebase.storage.StorageReference
 import java.lang.Integer.parseInt
 
 class AddRestaurantFragment : Fragment() {
+    // creación de variables
     private var _binding: FragmentAddRestaurantBinding? = null
     private val PICK_IMAGE_REQUEST = 71
     private val binding get() = _binding!!
@@ -35,15 +36,19 @@ class AddRestaurantFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //inicialización del view model
         restaurantViewModel =
             ViewModelProvider(this)[RestaurantViewModel::class.java]
+        //inicialización del binding
         _binding = FragmentAddRestaurantBinding.inflate(inflater, container, false)
 
+        // inicialización y creacion de instancias para firebase
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
 
+        // asignación de los listener en los clicks
         binding.btnSaveRestaurant.setOnClickListener {
-            addLugar()
+            addRestaurant()
         }
 
         binding.btnChooseImage.setOnClickListener {
@@ -57,6 +62,7 @@ class AddRestaurantFragment : Fragment() {
         return binding.root
     }
 
+    // abrir galeria del telefono para seleccionar foto
     private fun launchGallery() {
         val intent = Intent()
         intent.type = "image/*"
@@ -64,10 +70,12 @@ class AddRestaurantFragment : Fragment() {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
+    // asignacion de imagen seleccionada
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         this.imageUri = data?.data
     }
 
+    // guardado de imagenes en firestorage
     private fun uploadImage() {
         val name = binding.iptName.toString()
         val storageReference = FirebaseStorage.getInstance().getReference("imagenes/$usuario/$name")
@@ -83,7 +91,10 @@ class AddRestaurantFragment : Fragment() {
         }
     }
 
-    private fun addLugar() {
+    /*
+        Metodo para agregar el restaurante utilizando los campos de texto
+     */
+    private fun addRestaurant() {
         val name=binding.iptName.text.toString()
         val phone1=parseInt(binding.iptTel1.text.toString())
         val phone2=parseInt(binding.iptTel2.text.toString())

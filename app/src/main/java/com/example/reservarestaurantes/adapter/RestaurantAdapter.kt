@@ -12,6 +12,9 @@ import com.example.reservarestaurantes.ui.home.RestaurantFragmentDirections
 class RestaurantAdapter : RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
     private var lista = emptyList<Restaurant>()
 
+    /*
+        Obtener viewHolder y asignacion de los datos de los items a las filas
+     */
     inner class RestaurantViewHolder(private val itemBinding: RestaurantFilaBinding)
         : RecyclerView.ViewHolder (itemBinding.root){
         fun draw(restaurant: Restaurant) {

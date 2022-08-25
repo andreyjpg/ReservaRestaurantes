@@ -21,30 +21,25 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [UpdateRestaurantFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class UpdateRestaurantFragment : Fragment() {
 
-
-    //Se deciben los parametros pasados por argumento
+    //Se decriben los parametros pasados por argumento
     private val args by navArgs<UpdateRestaurantFragmentArgs>()
+
+    // creacion de variables para firebase, almacenamiento de imagenes
     private var progressDialog: ProgressDialog? = null
     private val PICK_IMAGE_REQUEST = 71
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
+
+    //declaración de binding
     private var _binding: FragmentUpdateRestaurantBinding? = null
     private val binding get() = _binding!!
+    // declaracion de viewModel
     private lateinit var restaurantViewModel: RestaurantViewModel
     private val usuario = Firebase.auth.currentUser?.email.toString()
 
+    //url de imagen
     private var imageUri: Uri? = null
 
     override fun onCreateView(
@@ -52,13 +47,17 @@ class UpdateRestaurantFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // instancia de viewModel
         restaurantViewModel =
             ViewModelProvider(this)[RestaurantViewModel::class.java]
+        //instancia binding
         _binding = FragmentUpdateRestaurantBinding.inflate(inflater, container, false)
+
+        //instancia de firebase
         firebaseStore = FirebaseStorage.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
 
-        //Coloco la info del nft en los campos del fragmento... para modificar...
+        //Coloco la info del restaurante en los campos del fragmento... para modificar...
         binding.iptName.setText(args.restaurant.name)
         binding.iptTel1.setText(args.restaurant.phone1.toString())
         binding.iptTel2.setText(args.restaurant.phone2.toString())
@@ -68,12 +67,17 @@ class UpdateRestaurantFragment : Fragment() {
         binding.iptNumberReservations.setText(args.restaurant.reservationNumber.toString())
         binding.iptAddress.setText(args.restaurant.Address)
 
+        //asignacion de click listener
         binding.btnDeleteRestaurant.setOnClickListener { deleteRestaurant() }
         binding.btnUpdateRestaurant.setOnClickListener { updateRestaurant() }
         binding.btnChooseImage.setOnClickListener { launchGallery() }
         binding.btnUploadImage.setOnClickListener { uploadImage() }
         binding.btnBooking.setOnClickListener { goToBooking() }
 
+        /*
+            si el usuario que lo creó no es el mismo al usuario que fue ingresado,
+            los campos editables dejan de serlo y se ocultan los botones de actualización
+         */
         if(args.restaurant.userCreate != usuario){
 
             binding.iptName.isFocusable = false
@@ -95,11 +99,13 @@ class UpdateRestaurantFragment : Fragment() {
         return binding.root
     }
 
+    // ir al fragmento de reservas en el momento que el botón "realizar reservas" es clickeado
     private fun goToBooking() {
         val action = UpdateRestaurantFragmentDirections.actionUpdateRestaurantFragmentToAddReservasFragment(args.restaurant)
         findNavController().navigate(action)
     }
 
+    // abrir galeria de imagenes
     private fun launchGallery() {
         val intent = Intent()
         intent.type = "image/*"
@@ -107,10 +113,12 @@ class UpdateRestaurantFragment : Fragment() {
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
+    // asignación de la imagen seleccionada
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         this.imageUri = data?.data
     }
 
+    // subir imagen a firestorage
     private fun uploadImage() {
         val name = binding.iptName.toString()
         val storageReference = FirebaseStorage.getInstance().getReference("imagenes/$usuario/$name")
@@ -126,11 +134,12 @@ class UpdateRestaurantFragment : Fragment() {
         }
     }
 
+    // visualización del menú con la opcion de poder eliminar el restaurante
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu,menu)
     }
 
-
+    // Opcion seleccionada del menu de opciones
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId==R.id.menu_delete) {
             deleteRestaurant()
@@ -138,7 +147,7 @@ class UpdateRestaurantFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    // Es el método que me eimina el NFT por medio del id que se pasa como argumentos.
+    // Es el método que me eimina el restaurant e por medio del id que se pasa como argumentos.
     private fun deleteRestaurant() {
         val pantalla= AlertDialog.Builder(requireContext())
 
@@ -154,7 +163,7 @@ class UpdateRestaurantFragment : Fragment() {
         pantalla.create().show()
     }
 
-
+    // metodo de actualización de restaurante
     private fun updateRestaurant() {
         val name=binding.iptName.text.toString()
         val phone1= Integer.parseInt(binding.iptTel1.text.toString())

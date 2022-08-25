@@ -10,14 +10,17 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 class RestaurantDao {
+    // inicialización de variables
     private val collection = "restaurants"
     private val usuario = Firebase.auth.currentUser?.email.toString()
     private var firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 
+    //instanciar configuración firestore
     init {
         firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
     }
 
+    // obtener una lista de restaurantes ingresados
     fun getAllData() : MutableLiveData<List<Restaurant>> {
         val restaurantsList = MutableLiveData<List<Restaurant>>()
         firestore.collection(collection)
@@ -38,12 +41,13 @@ class RestaurantDao {
         return restaurantsList
     }
 
+    //Guardado del restaurante o edicion del mismo
     fun saveRestaurant(restaurant: Restaurant) {
         val document: DocumentReference
-        if (restaurant.id.isEmpty()){
+        if (restaurant.id.isEmpty()){ // si el id esta vacio quiere decir que se debe crear uno nuevo
             document = firestore.collection(collection).document()
             restaurant.id = document.id
-        } else {
+        } else {// sino se edita el documento con el id que se envio
             document = firestore.collection(collection).document(restaurant.id)
         }
         document.set(restaurant)
@@ -51,6 +55,7 @@ class RestaurantDao {
             .addOnCanceledListener { Log.e("saveRestaurant","NO se creó o modificó un restaurante") }
     }
 
+    // metodo para eliminar el restaurante utilizando el id que se envia
     fun deleteRestaurant(restaurant: Restaurant) {
         if (restaurant.id.isNotEmpty()) {  //Si el id tiene valor... entonces podemos eliminar el restaurant... porque existe...
             firestore.collection(collection).document(restaurant.id).delete()

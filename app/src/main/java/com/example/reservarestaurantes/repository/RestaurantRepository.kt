@@ -5,6 +5,7 @@ import com.example.reservarestaurantes.data.RestaurantDao
 import com.example.reservarestaurantes.model.Restaurant
 
 class RestaurantRepository(private val restaurantDao: RestaurantDao) {
+    // repositorio usado para el acceso al dao
     fun saveRestaurant(restaurant: Restaurant) {
         restaurantDao.saveRestaurant(restaurant)
     }
